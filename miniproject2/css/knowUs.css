@@ -191,6 +191,9 @@ footer>p {
 hr.page-break {
 	display: none;
 }
+.card-height{
+    min-height: 100px;
+}
 .about-1{
 	padding: 10px 20px;
     color: white;
@@ -208,6 +211,7 @@ hr.page-break {
 .about-item{
 	background-color: white;
 	box-shadow: 0 0 9px rgba(0,0,0 .6);
+    height: 250px;
 }
 .about-item>hr{
 	width: 46px;
