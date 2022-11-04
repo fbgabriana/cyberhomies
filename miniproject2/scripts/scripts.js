@@ -1,38 +1,63 @@
 let setBackground = () => {
-	if (location.href.includes("home.html") || location.href.includes("template.html")) {
-		document.body.style.backgroundImage = `url(images/background0.jpg), url(images/background.jpg)`;
-		let img = [];
-		for (let i = 0; i < 6; i++) {
-			img[i] = new Image();
-			img[i].src = `images/background${i}.jpg`;
-		}
-		let benefits = ["marketability online", "growth opportunities", "competitiveness", "market expansion", "consumer services", "your credibility"];
-		setTimeout(() => {
-			let i = 0;
-			let j = 0;
-			setInterval(() => {
-				j = i; i = (i + 1) % 6;
-				replaceBackground(i, j);
-				replaceText(i);
-			}, 4000);
 
-			let replaceBackground = (i, j) => {
-				document.body.style.backgroundImage = `url(images/background${i}.jpg), url(images/background${j}.jpg)`;
+	const d0 = new Date();
+	const getFrameNumber = () => {
+		let d1 = new Date();
+		return Math.floor( ( d1.getTime() - d0.getTime() ) / 4000 ) % 6;
+	}
+
+	const getColorScheme = () => {
+		return window.matchMedia("(prefers-color-scheme: dark)").matches;
+	}
+
+	const benefits = ["marketability online", "growth opportunities", "competitiveness", "market expansion", "consumer services", "your credibility"];
+
+	const preloadImages = () => {
+		let img1 = []; let img2 = [];
+		for (let i = 0; i < 6; i++) {
+			img1[i] = new Image(); img2[i] = new Image();
+			img1[i].src = `images/background${i}.jpg`;
+			img2[i].src = `images/background${i}-dark.jpg`;
+		}
+	}
+	preloadImages();
+
+	const changeFrame = (b) => {
+		f = getFrameNumber(); p = (f + 5) % 6;
+		s = getColorScheme() ? "-dark" : "";
+		if (location.href.includes("home.html") || location.href.includes("template.html")) {
+			if (b) {
+				document.body.style.backgroundImage = `url(images/background0${s}.jpg), url(images/background${s}.jpg)`;
+			} else {
+				document.body.style.backgroundImage = `url(images/background${f}${s}.jpg), url(images/background${p}${s}.jpg)`;
 			}
-			let replaceText = i => {
-				document.querySelector(".boost").innerHTML = benefits[i];
-			}
-		}, 1000);
+			let boost = document.querySelector(".boost");
+			if (boost) boost.childNodes[0].nodeValue = benefits[f];
+		}
+		if (location.href.includes("about.html")) {
+			document.body.style.backgroundImage = `url(images/background1${s}.jpg), url(images/background${s}.jpg)`;
+		}
+		if (location.href.includes("projects.html")) {
+			document.body.style.backgroundImage = `url(images/background3${s}.jpg), url(images/background${s}.jpg)`;
+		}
+		if (location.href.includes("contact.html")) {
+			document.body.style.backgroundImage = `url(images/background4${s}.jpg), url(images/background${s}.jpg)`;
+		}
 	}
-	if (location.href.includes("about.html")) {
-		document.body.style.backgroundImage = `url(images/background1.jpg), url(images/background.jpg)`;
-	}
-	if (location.href.includes("projects.html")) {
-		document.body.style.backgroundImage = `url(images/background3.jpg), url(images/background.jpg)`;
-	}
-	if (location.href.includes("contact.html")) {
-		document.body.style.backgroundImage = `url(images/background4.jpg), url(images/background.jpg)`;
-	}
+	changeFrame(true);
+
+	setInterval(rotateFrames = () => {
+		changeFrame();
+	}, 4000);
+
+	let currentColorScheme = "";
+	setInterval(checkSchemeChange = () => {
+		checkColorScheme = getColorScheme();
+		if (currentColorScheme != checkColorScheme) {
+			currentColorScheme = checkColorScheme;
+			changeFrame();
+		}
+	}, 100);
 }
 
 let setCurrentPage = () => {
