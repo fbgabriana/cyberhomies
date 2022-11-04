@@ -101,7 +101,7 @@ header>nav li a.current-section {
 }
 
 main {
-	display: flex;
+	display: block;
 	align-items: flex-start;
 	justify-content: center;
 }
@@ -155,10 +155,10 @@ main button.quote:active {
 
 main article {
 	box-sizing: border-box;
-	margin: 2px 0;
-	width: 80%;
-	max-width: 50em;
-	min-height: calc(100vh - 150px);
+	margin: 2px auto;
+	width: 100%;
+	/* max-width: 75em; */
+	/* min-height: calc(100vh - 150px); */
 	background-image: linear-gradient(90deg, hsla(0, 0%, 100%, 0.5) 0%, hsla(0, 0%, 100%, 0.75) 8%, hsla(0, 0%, 100%, 0.75) 92%, hsla(0, 0%, 100%, 0.5) 100%);
 	border-radius: 2em;
 	box-shadow: 0 0 20px hsl(207, 0.000%, 100.000%);
@@ -178,6 +178,44 @@ footer>p {
 	text-align: center;
 	text-shadow: 0 0 2px hsla(34, 40.0000%, 20.0000%, 0.5);
 }
+.about-1{
+	padding: 10px 20px;
+}
+.about-1>h1{
+	text-align: center;
+	color: black;
+	font-weight: bold;
+}
+.about-1>p{
+	text-align: center;
+	padding: 3px;
+	color: black;
+}
+.about-item{
+	background-color: white;
+	box-shadow: 0 0 9px rgba(0,0,0 .6);
+}
+.about-item>hr{
+	width: 46px;
+	height: 3px;
+	background-color: #5fbff9;
+	margin: 0 auto;
+	border: none;
+}
+.about-item>i{
+	font-size:43px;
+}
+.about-item:hover{
+	background-color: #5fbff9;
+}
+.about-item:hover>i,.about-item:hover>h3,.about-item:hover>p{
+	color:#fff;
+	transition: all 300ms ease-in-out;
+}
+.about-item:hover>hr{
+	background-color: #fff;
+}
+
 
 @media screen and (max-width: 760px) {
 	main p.mission {
