@@ -2,9 +2,9 @@
 
 # Cyber Homies Group Website
 
-This is the Cyber Homies website submitted by Group 4 for the [KodeGo Web Developer Course](https://kodego.ph/courses/1) we are taking.
+KodeGo Mini-Project 2: Cyber Homies Web Development Company by Group 4.
 
-It's original development location was [miniproject2](/miniproject2/).
+![screenshot](screenshot.png)
 
 * [View the site](home.html){:target="_projectpage"}
 
