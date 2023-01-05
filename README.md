@@ -1,4 +1,4 @@
-## [fbgabriana.github.io](/ "Bamm's KodeGo Repository") / [cyberhomies](/cyberhomies/)
+## [https://fbgabriana.github.io/](/ "Bamm's KodeGo Repository") / [cyberhomies](/cyberhomies/)
 
 # Cyber Homies Group Website
 
